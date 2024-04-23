@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servers Management</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styles.css') }}">
+    
+</head>
+<body>
+
+<h1>Server Management</h1>
+
+<!-- Server addition form -->
+<form action="{{ url_for('manage_servers') }}" method="POST">
+    <h2>Add Server</h2>
+    <label for="server_name">Server Name:</label>
+    <input type="text" id="server_name" name="server_name">
+    <!-- Add more fields as needed -->
+    <button type="submit">Add Server</button>
+</form>
+
+<hr>
+
+<!-- Server list -->
+<h2>Server List</h2>
+<ul>
+    {% for server in servers %}
+    <li>{{ server.name }}</li>
+    <!-- Add more server details here -->
+    {% endfor %}
+</ul>
+
+</body>
+</html>
